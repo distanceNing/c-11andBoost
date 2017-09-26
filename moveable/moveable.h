@@ -1,14 +1,5 @@
-/* ************************************************************************
- *       Filename:  moveable.h
- *    Description:  
- *        Version:  1.0
- *        Created:  2017年07月14日 08时31分33秒
- *       Revision:  none
- *       Compiler:  gcc
- *         Author:  YOUR NAME (), 
- *        Company:  
- * ************************************************************************/
-
+#ifndef _MOVEABLE_H_
+#define _MOVEABLE_H_
 class moveable
 {
 public:
@@ -16,12 +7,12 @@ public:
 	{}
 	moveable(moveable&& other)		//转移构造函数
 	{
-		std::swap(x,other.x);
+		std::swap(x, other.x);
 	}
 
 	moveable& operator=(moveable&& other)
 	{
-		std::swap(x,other.x);
+		std::swap(x, other.x);
 		return *this;
 	}
 
@@ -33,5 +24,8 @@ public:
 private:
 	int x;
 };
+#endif // !_MOVEABLE_H_
+
+
 
 
