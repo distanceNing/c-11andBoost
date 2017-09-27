@@ -3,8 +3,8 @@
 class moveable
 {
 public:
-	moveable()
-	{}
+	moveable(){}
+
 	moveable(moveable&& other)		//转移构造函数
 	{
 		std::swap(x, other.x);

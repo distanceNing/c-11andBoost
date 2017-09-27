@@ -3,8 +3,7 @@
 #include "moveable.h"
 #include <vector>
 using namespace std;
-template <typename T,typename type>
-using Container = T<type>;
+
 
 template <class Container>
 void test(Container con)
@@ -21,7 +20,7 @@ void test(Container con)
 	}
 }
 
-int main()
+int amain()
 {
 	//moveable test1;
 
@@ -29,6 +28,6 @@ int main()
 
 	//moveable test3(moveable::create());//调用转移赋值函数
 	
-	test(vector<int>{12,3,545,54});
+//	test(vector<int>{12,3,545,54});
 	return 0;
 }
