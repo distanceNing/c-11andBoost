@@ -12,8 +12,32 @@ using namespace std;
 };
 
 
-int main()
+int amain()
 {
+	char str[] = "hello world";
+	char* const p1 = str;  //指针为常量
+						   //p1++;  
+	*p1 = 'H';
+
+	//所指物为常量
+	const char* p2 = str;  
+	p2++;
+	//*p2='H';
+
+	//指针和所指物都为常量 不可修改
+	const char* const p3 = str; 
+
+	//迭代器的作用：T*
+	vector<int>test = { 0,1,2,3 };
+	const vector<int>::iterator p_iter1 = test.begin(); //iterator为常量  
+	//vector<int>::iterator const p_iter1 = test.begin();
+	//p_iter1++;
+	*p_iter1 = 10;
+
+	vector<int>::const_iterator p_iter2 = test.begin();//*p_iter2为常量
+	p_iter2++;
+	//*p_iter2 = 10;
+
 	//不仅容器接受initializer_list为参数
 	//部分算法也接受这样的参数。
 	//Foo foo1(1, 2);
@@ -44,8 +68,6 @@ int main()
 	
 	Foo* ptr2 = new Foo[5];
 	delete[] ptr2;
-
-
 
 
 	//vector<TEST_STRUCT> vec{ TEST_STRUCT(1,23) };

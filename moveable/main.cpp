@@ -4,24 +4,30 @@
 #include <vector>
 using namespace std;
 
-
-template <class Container>
-void test(Container con)
+//模板别名
+template <class T>
+using Vec = vector<T, allocator<T>>;
+//模板的模板参数
+template <class T,template <class> class Container>
+class XCLs
 {
-	typedef typename iterator_traits<typename Container::iterator>::value_type ValueType;
-	con<T> test;
-	for (auto i : test)
+public:
+	XCLs(int size=6)
 	{
-		if (i == elem)
+		for (int i = 0;i < size;++i)
 		{
-			cout << "i==elem" << endl;
+			container_.insert(container_.end(), T());
 		}
-
 	}
-}
 
-int amain()
+private:
+	Container<T> container_;
+};
+
+int main()
 {
+	XCLs<int, Vec> test;
+
 	//moveable test1;
 
 	//moveable test2(std::move(test1)); //调用转移构造函数,test1被转移成右值&&

@@ -12,6 +12,8 @@ public:
 	//non const object 皆可调用
 	double getReal()const
 	{
+		//用mutable修饰的成员变量总是可以修改，即使在const成员函数中
+		non_const_ = -1;
 		return real_;
 	}
 
@@ -22,12 +24,12 @@ public:
 
 	~Complex() {}
 
-
-
-
 private:
 	double real_;
+
 	double imag_;
+
+	mutable int non_const_;
 };
 
 
