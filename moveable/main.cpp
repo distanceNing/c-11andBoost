@@ -4,6 +4,11 @@
 #include <vector>
 using namespace std;
 
+//两种写法并无区别
+typedef void(*func)(int, int);
+
+using fun = void(*)(int, int);
+
 //模板别名
 template <class T>
 using Vec = vector<T, allocator<T>>;
@@ -24,7 +29,7 @@ private:
 	Container<T> container_;
 };
 
-int main()
+int amain()
 {
 	XCLs<int, Vec> test;
 
@@ -34,6 +39,6 @@ int main()
 
 	//moveable test3(moveable::create());//调用转移赋值函数
 	
-//	test(vector<int>{12,3,545,54});
+	//test(vector<int>{12,3,545,54});
 	return 0;
 }
