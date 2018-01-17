@@ -1,5 +1,6 @@
 #include <iostream>
 #include <functional>
+#include <memory>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -29,14 +30,28 @@ int main()
 		return arg > x&&arg > y;
 	}), vec.end());
 
-	for (auto i : vec)
-	{
-		if (i > 40)
-			break;
-		cout << i << endl;
-	}
 
 	cout << fib(8) << endl;
+
+
+	auto fun = [](int in) {
+		int t = 3;
+		return [=](int x) {return in + t + x;};
+	};
+	//通过函数生成函数
+	//生成的函数包含上下文、状态。
+	auto fun1 = fun(2);
+	auto res = fun1(2);
+	cout << res << "\n";
+
+
+	/* 函数式编程
+	 * map：映射 lambda
+	 * reduce：遍历 for_each
+	 * filte：过滤
+	 */
+
+
 	getchar();
 	return 0;
 }
